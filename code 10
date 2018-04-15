@@ -1,0 +1,29 @@
+//problem 1
+#include<stdio.h>
+int main() 
+{
+	int distance = 0;
+	int queue[] =
+	 {
+	143, 86, 1470, 913, 1774, 948, 1509, 1022, 1750, 130
+	};
+	//143, 86, 1470, 913, 1774, 948, 1509, 1022, 1750, 130
+	for(int i= 0;i<(sizeof(queue)/4)-1; i++)
+	{
+		if(queue[i]>queue[i+1])
+		{
+			distance += queue[i]-queue[i+1];
+		}
+		else
+		{
+			distance += queue[i+1]-queue[i];
+		}
+	}
+	printf("The first come first served (FCFS) schedule is :\n");
+	for(int i =0;i<sizeof(queue)/4;i++)
+	{
+		printf("%d ",queue[i]);
+	}
+	printf("\nThe total seek distance(in cylinders) is: %d\n",distance);
+	return 0;
+}
